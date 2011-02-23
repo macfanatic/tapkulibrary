@@ -724,6 +724,17 @@
     [super dealloc];
 }
 
+
+- (NSDate*)dateForMonthChange:(UIView*)sender {
+	BOOL isNext = (sender.tag == 1);
+	NSDate *nextMonth = isNext ? [currentTile.monthDate nextMonth] : [currentTile.monthDate previousMonth];
+	
+	TKDateInformation nextInfo = [nextMonth dateInformationWithTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+	NSDate *localNextMonth = [NSDate dateFromDateInformation:nextInfo];
+	
+	return localNextMonth;
+}
+
 - (void) changeMonthAnimation:(UIView*)sender{
 	
 	BOOL isNext = (sender.tag == 1);
@@ -810,9 +821,20 @@
 }
 - (void) changeMonth:(UIButton *)sender{
 	
+	NSDate* newDate = [self dateForMonthChange:sender];
+	if ( [self.delegate respondsToSelector:@selector(calendarMonthView:monthShouldChange:animated:)] && ![self.delegate calendarMonthView:self monthShouldChange:newDate animated:YES] ) {
+		return;
+	}
+	
+	if ( [self.delegate respondsToSelector:@selector(calendarMonthView:monthWillChange:animated:)] ) {
+		[self.delegate calendarMonthView:self monthWillChange:newDate animated:YES];
+	}
+	
 	[self changeMonthAnimation:sender];
-	if([delegate respondsToSelector:@selector(calendarMonthView:monthDidChange:animated:)])
-		[delegate calendarMonthView:self monthDidChange:currentTile.monthDate animated:YES];
+	
+	if ( [self.delegate respondsToSelector:@selector(calendarMonthView:monthDidChange:animated:)] ) {
+		[self.delegate calendarMonthView:self monthDidChange:currentTile.monthDate animated:YES];
+	}
 
 }
 - (void) animationEnded{
@@ -838,12 +860,21 @@
 		return;
 	}else {
 		
+		if ( [self.delegate respondsToSelector:@selector(calendarMonthView:monthShouldChange:animated:)] && ![self.delegate calendarMonthView:self monthShouldChange:month animated:YES] ) {
+			return;
+		}
+		
+		if ( [delegate respondsToSelector:@selector(calendarMonthView:monthWillChange:animated:)] ) {
+			[delegate calendarMonthView:self monthWillChange:month animated:YES];
+		}
+				
 		NSArray *dates = [TKCalendarMonthTiles rangeOfDatesInMonthGrid:month startOnSunday:sunday];
 		NSArray *data = [dataSource calendarMonthView:self marksFromDate:[dates objectAtIndex:0] toDate:[dates lastObject]];
 		TKCalendarMonthTiles *newTile = [[TKCalendarMonthTiles alloc] initWithMonth:month 
 																			  marks:data 
 																   startDayOnSunday:sunday];
 		[newTile setTarget:self action:@selector(tile:)];
+				
 		[currentTile removeFromSuperview];
 		[currentTile release];
 		currentTile = newTile;
@@ -887,6 +918,14 @@
 		int direction = [[ar lastObject] intValue];
 		UIButton *b = direction > 1 ? self.rightArrow : self.leftArrow;
 		
+		NSDate* newMonth = [self dateForMonthChange:b];
+		if ( [self.delegate respondsToSelector:@selector(calendarMonthView:monthShouldChange:animated:)] && ![self.delegate calendarMonthView:self monthShouldChange:newMonth animated:YES] ) {
+			return;
+		}
+		
+		if ( [self.delegate respondsToSelector:@selector(calendarMonthView:monthWillChange:animated:)] ) {						
+			[self.delegate calendarMonthView:self monthWillChange:newMonth animated:YES];
+		}
 		
 		[self changeMonthAnimation:b];
 		
