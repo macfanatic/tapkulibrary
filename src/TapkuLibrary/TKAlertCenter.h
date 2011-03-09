@@ -31,8 +31,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-@class TKAlertView;
+#import "TKAlertView.h"
 
 @interface TKAlertCenter : NSObject {
 
@@ -43,10 +42,16 @@
 	
 }
 
-+ (TKAlertCenter*) defaultCenter;
++ (TKAlertCenter*)defaultCenter;
 
-- (void) postAlertWithMessage:(NSString*)message image:(UIImage*)image;
-- (void) postAlertWithMessage:(NSString *)message;
+- (void)dismissCurrent;
+
+- (void)postAlertWithView:(TKAlertView *)view;
+- (void)postAlertWithView:(TKAlertView *)view blocking:(BOOL)b;
+- (void)postAlertWithView:(TKAlertView *)view blocking:(BOOL)b completion:(TKAlertViewCompletionBlock)block;
+
+- (void)postAlertWithMessage:(NSString*)message image:(UIImage*)image;
+- (void)postAlertWithMessage:(NSString *)message;
 
 @end
 

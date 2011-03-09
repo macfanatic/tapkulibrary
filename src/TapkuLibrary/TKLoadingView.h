@@ -30,8 +30,9 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "TKAlertView.h"
 
-@interface TKLoadingView : UIView {
+@interface TKLoadingView : TKAlertView {
 	UIActivityIndicatorView *_activity;
 	BOOL _hidden;
 

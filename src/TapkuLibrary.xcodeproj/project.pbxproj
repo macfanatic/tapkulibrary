@@ -118,6 +118,8 @@
 		3BEE1CBB12CFB78300FECF6D /* TKProgressCircleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BEE1CB912CFB78300FECF6D /* TKProgressCircleView.h */; };
 		3BEE1CBC12CFB78300FECF6D /* TKProgressCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEE1CBA12CFB78300FECF6D /* TKProgressCircleView.m */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		C9EC6BEF1327276300017940 /* TKAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = C9EC6BED1327276300017940 /* TKAlertView.h */; };
+		C9EC6BF01327276300017940 /* TKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EC6BEE1327276300017940 /* TKAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -251,6 +253,8 @@
 		3BF000FD10957EE50062DA49 /* NSString+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TKCategory.m"; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* TapkuLibrary_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapkuLibrary_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C9EC6BED1327276300017940 /* TKAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKAlertView.h; sourceTree = "<group>"; };
+		C9EC6BEE1327276300017940 /* TKAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAlertView.m; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libTapkuLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTapkuLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -409,6 +413,8 @@
 		3BAC9A3E10953E5200F235F1 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
+				C9EC6BED1327276300017940 /* TKAlertView.h */,
+				C9EC6BEE1327276300017940 /* TKAlertView.m */,
 				3BD32970125B753900BE5EAF /* TKAlertCenter.h */,
 				3BD32971125B753900BE5EAF /* TKAlertCenter.m */,
 				3BA577B81199DF1600ECB85B /* TKProgressAlertView.h */,
@@ -680,6 +686,7 @@
 				3BEE1CBB12CFB78300FECF6D /* TKProgressCircleView.h in Headers */,
 				3B4346E412DA6A240076579B /* UIButton+TKCategory.h in Headers */,
 				3B9D93DA12F74F8F007D839C /* TKAppDelegate.h in Headers */,
+				C9EC6BEF1327276300017940 /* TKAlertView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +814,7 @@
 				3BEE1CBC12CFB78300FECF6D /* TKProgressCircleView.m in Sources */,
 				3B4346E512DA6A240076579B /* UIButton+TKCategory.m in Sources */,
 				3B9D93DB12F74F8F007D839C /* TKAppDelegate.m in Sources */,
+				C9EC6BF01327276300017940 /* TKAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
