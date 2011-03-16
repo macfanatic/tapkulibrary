@@ -41,7 +41,7 @@
 
 
 - (id) initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
+    if ((self = [super initWithFrame:frame])) {
 		self.opaque = NO;
 		self.backgroundColor = [UIColor clearColor];
 		self.layer.anchorPoint = CGPointMake(0.5, 0.5);

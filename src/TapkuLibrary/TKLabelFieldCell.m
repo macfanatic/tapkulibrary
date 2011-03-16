@@ -38,7 +38,7 @@
 
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
-    if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier]) {
+    if ((self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier])) {
         // Initialization code
 		field = [[UILabel alloc] initWithFrame:CGRectZero];
 		[self addSubview:field];

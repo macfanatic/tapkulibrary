@@ -45,7 +45,7 @@
 @synthesize radius;
 
 - (id) initWithTitle:(NSString*)ttl message:(NSString*)msg{
-	if(self = [super initWithFrame:CGRectMake(0, 0, 280, 200)]){
+	if((self = [super initWithFrame:CGRectMake(0, 0, 280, 200)])){
 		
 		_title = [ttl copy];
 		_message = [msg copy];
@@ -155,8 +155,8 @@
 }
 
 
-- (CGSize) calculateHeightOfTextFromWidth:(NSString*)text font: (UIFont*)withFont width:(float)width linebreak:(UILineBreakMode)lineBreakMode{
-	return [text sizeWithFont:withFont 
+- (CGSize) calculateHeightOfTextFromWidth:(NSString*)str font: (UIFont*)withFont width:(float)width linebreak:(UILineBreakMode)lineBreakMode{
+	return [str sizeWithFont:withFont 
 			constrainedToSize:CGSizeMake(width, FLT_MAX) 
 				lineBreakMode:lineBreakMode];
 }

@@ -37,7 +37,7 @@
 @synthesize label;
 
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+    if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
         // Initialization code
 		label = [[UILabel alloc] initWithFrame:CGRectZero];
 		label.textAlignment = UITextAlignmentRight;

@@ -36,7 +36,7 @@
 @synthesize switcher;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
-    if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier]) {
+    if ((self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier])) {
         // Initialization code
 		switcher = [[UISwitch alloc] initWithFrame:CGRectZero];
 		[self addSubview:switcher];

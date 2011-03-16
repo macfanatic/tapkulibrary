@@ -47,7 +47,7 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
+    if((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]))
 	{
 		contentView = [[ABTableViewCellView alloc] initWithFrame:CGRectZero];
 		contentView.opaque = YES;
@@ -59,7 +59,7 @@
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier
 {
-    if(self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier])
+    if((self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier]))
 	{
 		contentView = [[ABTableViewCellView alloc] initWithFrame:CGRectZero];
 		contentView.opaque = YES;
